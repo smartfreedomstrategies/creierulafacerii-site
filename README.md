@@ -1,18 +1,22 @@
 # CreierulAfacerii.ro — site static
 
-Pagina-erou a Creierului Afacerii. Un singur fișier, `index.html`, autonom. Font Satoshi din Fontshare (CDN). Fără build, fără dependențe locale, fără panou. Plain file.
+Site static al Creierului Afacerii. Fără build, fără dependențe locale, fără panou. Plain files. Font Satoshi din Fontshare (CDN).
 
 Deploy pe **Cloudflare Pages**, din Git, exact ca `razvanpopescu-site`. Orice push în `main` → Cloudflare republică automat.
 
 ## Ce e în pachet
-- `index.html` — pagina întreagă (HTML + CSS + JS inline, iconițe SVG inline)
+- **`index.html`** — pagina **„În curând"** (live, în față). Holding page curată cât timp pagina completă se șlefuiește.
+- **`pagina-completa.html`** — pagina-erou completă (conversion-focused, toate secțiunile). Ține loc de **backup** și e accesibilă la `creierulafacerii.ro/pagina-completa.html`. Când e gata, redevine `index.html`.
 - `DEPLOY-cloudflare-pages.md` — pașii de deploy pe Cloudflare Pages
 - `DNS-checklist-cloudflare.md` — șablon de verificare DNS înainte de a lega domeniul
 - `README.md` — fișierul ăsta
 - `.gitignore`
 
 ## Sursa de adevăr
-Fișierul `index.html` de aici e **versiunea live** a paginii. Originea de design e `the-business-brain.html` din repo-ul de dezvoltare `creierul-afacerii` (umbrelă), dar de acum editările pentru site se fac AICI și se dau push. Cloudflare republică singur.
+Fișierele de aici sunt **versiunea live**. Originea de design a paginii complete e `the-business-brain.html` din repo-ul de dezvoltare `creierul-afacerii` (umbrelă); a paginii „În curând", `coming-soon.html` din același repo. Editările pentru site se fac AICI și se dau push. Cloudflare republică singur.
+
+## Cum se face schimbul (când pagina completă e gata)
+`git mv index.html coming-soon-backup.html` apoi `git mv pagina-completa.html index.html`, `git push`. Cloudflare pune pagina completă în față.
 
 ---
 

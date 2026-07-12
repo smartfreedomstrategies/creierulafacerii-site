@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creierul Afacerii. Un AI care ține minte toată afacerea ta.</title>
-<meta name="description" content="Un AI care ține minte tot despre afacerea ta, în propriul tău Notion. Acționează pe baza a ce știe și îți dă raportul la 7:00 în fiecare dimineață. Instalat pentru tine, într-o singură sesiune.">
-<meta property="og:title" content="Creierul Afacerii. Un AI care ține minte toată afacerea ta.">
-<meta property="og:description" content="Afacerea ta, cu un creier al ei. Memoria în Notion-ul tău, acțiune pe cifrele tale, un raport în fiecare dimineață la 7:00.">
+<title>Creierul Afacerii. În curând.</title>
+<meta name="description" content="Creierul Afacerii: un AI care ține minte tot despre afacerea ta, în propriul tău Notion, și îți dă raportul în fiecare dimineață la 7:00. În curând.">
+<meta property="og:title" content="Creierul Afacerii. În curând.">
+<meta property="og:description" content="Un creier pentru afacerea ta. Memoria în Notion-ul tău, un raport în fiecare dimineață la 7:00. În curând.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://creierulafacerii.ro/">
 <meta name="twitter:card" content="summary">
@@ -24,17 +24,9 @@
     --ink-soft:#2b2b2b;
     --muted:#595551;
     --line:#e8e3de;
-    --accent:#e8490e;          /* display accents, large text */
-    --accent-deep:#c93c05;     /* small text on light, AA */
+    --accent:#e8490e;
+    --accent-deep:#c93c05;
     --accent-soft:rgba(232,73,14,.07);
-    --card:#ffffff;
-    --dark:#0f0f0f;
-    --dark-card:#1a1917;
-    --dark-line:#2d2b28;
-    --dark-text:#f5f2ee;
-    --dark-muted:#a8a29b;
-    --accent-bright:#ff6a2b;   /* small accent text on dark, AA */
-    --radius:18px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -42,306 +34,67 @@
     background:var(--bg);color:var(--ink);
     font:17px/1.65 "Satoshi",system-ui,-apple-system,sans-serif;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
-  ::selection{background:var(--accent);color:#fff}
-
-  /* ---------- shared ---------- */
-  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
-  section{position:relative}
-  .pad{padding:64px 0}
-  @media (max-width:720px){.pad{padding:44px 0}}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:10px;
-    font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--accent-deep);margin-bottom:20px;
-  }
-  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
-  h2{font-size:clamp(32px,4.6vw,54px);line-height:1.06;font-weight:700;letter-spacing:-.02em;max-width:15em}
-  h2 em{font-style:italic;color:var(--accent)}
-  .lead{max-width:600px;color:var(--muted);font-size:18px;margin-top:20px}
-  .lead strong{color:var(--ink);font-weight:700}
-
-  /* dotted texture + warm glow */
-  .texture{
+    min-height:100vh;display:flex;flex-direction:column;
     background-image:radial-gradient(rgba(15,15,15,.05) 1px, transparent 1.4px);
     background-size:26px 26px;
   }
-  .glow::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
+  ::selection{background:var(--accent);color:#fff}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
-      radial-gradient(560px 380px at 12% 8%, rgba(232,73,14,.06), transparent 70%),
-      radial-gradient(640px 420px at 90% 85%, rgba(232,73,14,.05), transparent 70%);
-  }
-  .tint{background:linear-gradient(180deg,#f7f1ec, #fafafa)}
+      radial-gradient(620px 440px at 15% 12%, rgba(232,73,14,.07), transparent 70%),
+      radial-gradient(680px 460px at 88% 88%, rgba(232,73,14,.06), transparent 70%);}
+  .wrap{max-width:640px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
-  /* reveal, fail-open: visible by default; hidden only once JS proves it can reveal (html.anim) */
-  .rev{opacity:1;transform:none}
-  @media (prefers-reduced-motion: no-preference){
-    html.anim .rev{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-    html.anim .rev.in{opacity:1;transform:none}
-  }
+  header{padding:30px 0}
+  .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .logo svg{flex:none}
+  .logo .wm b{display:block;font-size:17px;font-weight:900;letter-spacing:-.01em;line-height:1.15}
+  .logo .wm span{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.02em}
 
-  /* buttons */
+  main{flex:1;display:flex;align-items:center;padding:32px 0 48px}
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent-deep);margin-bottom:22px;
+  }
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+  @media (prefers-reduced-motion: no-preference){.badge .dot{animation:pulse 2.4s ease-in-out infinite}}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(232,73,14,.5)}50%{opacity:.55;box-shadow:0 0 0 6px rgba(232,73,14,0)}}
+  h1{font-size:clamp(40px,8vw,76px);line-height:1.03;font-weight:700;letter-spacing:-.028em;max-width:11em}
+  h1 em{font-style:italic;color:var(--accent)}
+  .sub{max-width:34em;color:var(--muted);font-size:clamp(16px,2vw,19px);margin-top:24px}
+  .sub b{color:var(--ink);font-weight:700}
+
+  .points{list-style:none;margin:30px 0 0;display:flex;flex-direction:column;gap:12px}
+  .points li{display:flex;align-items:flex-start;gap:11px;font-size:16px;font-weight:700;color:var(--ink-soft)}
+  .points svg{color:var(--accent-deep);flex:none;margin-top:3px}
+  .points li span{font-weight:500;color:var(--muted)}
+
+  .cta{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    min-height:52px;padding:14px 28px;border-radius:999px;
+    min-height:52px;padding:14px 26px;border-radius:999px;
     font-size:16px;font-weight:700;text-decoration:none;white-space:nowrap;
-    transition:transform .25s,box-shadow .25s,background .25s,color .25s,border-color .25s;
+    background:var(--accent);color:#fff;
+    transition:transform .25s,box-shadow .25s;
   }
   .btn svg{flex:none}
-  .btn-dark{background:var(--ink);color:#fff}
-  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(15,15,15,.45)}
-  .btn-light{background:#fff;color:var(--ink-soft);border:1px solid var(--line)}
-  .btn-light:hover{border-color:#cfc8c1;transform:translateY(-2px)}
-  .btn-accent{background:var(--accent);color:#fff}
-  .btn-accent:hover{transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(232,73,14,.55)}
-  .btn-ghost-dark{border:1px solid var(--dark-line);color:var(--dark-text);background:transparent}
-  .btn-ghost-dark:hover{border-color:var(--accent);color:var(--accent-bright)}
-  a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
-  .btn:focus-visible{border-radius:999px}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(232,73,14,.55)}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+  .micro{font-size:14px;color:var(--muted);margin-top:14px;max-width:34em}
 
-  .micro{font-size:14px;color:var(--muted);margin-top:16px}
-
-  /* ---------- header ---------- */
-  header{position:relative;z-index:10;height:76px;display:flex;align-items:center;background:var(--bg);border-bottom:1px solid var(--line)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%}
-  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-  .logo svg{flex:none}
-  .logo .wm{line-height:1.15}
-  .logo .wm b{display:block;font-size:17px;font-weight:900;letter-spacing:-.01em;white-space:nowrap}
-  .logo .wm span{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.02em}
-  nav.main{display:flex;align-items:center;gap:26px}
-  nav.main a.nl{font-size:15px;font-weight:700;color:var(--ink-soft);text-decoration:none}
-  nav.main a.nl:hover{color:var(--accent-deep)}
-  .btn-nav{min-height:44px;padding:10px 20px;font-size:15px;border:1.5px solid var(--accent-deep);color:var(--accent-deep);border-radius:999px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;white-space:nowrap}
-  .btn-nav:hover{background:var(--accent);border-color:var(--accent);color:#1c0a02}
-  .lang{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 6px;font-size:14px;font-weight:700;color:var(--muted);text-decoration:none;letter-spacing:.02em}
-  .lang:hover{color:var(--accent-deep)}
-  .lang svg{flex:none}
-  .lang .short{display:none}
-  .btn-nav .short{display:none}
-  @media (max-width:860px){
-    nav.main{gap:10px}
-    nav.main a.nl{display:none}
-    .logo .wm span{display:none}
-    .btn-nav{padding:10px 16px;font-size:14px}
-    .btn-nav .full{display:none}
-    .btn-nav .short{display:inline}
-    .lang .full{display:none}
-    .lang .short{display:inline}
-  }
-  @media (max-width:480px){
-    header .wrap{padding:0 16px}
-    .logo{gap:9px}
-    .logo .wm b{font-size:15px}
-    .lang svg{display:none}
-    .lang{padding:0 2px}
-    .btn-nav{padding:10px 14px}
-  }
-
-  /* ---------- hero ---------- */
-  #hero{padding:96px 0 84px;text-align:center}
-  @media (max-width:720px){#hero{padding:56px 0 64px}}
-  #hero h1{font-size:clamp(42px,7vw,92px);line-height:1.04;font-weight:700;letter-spacing:-.028em;max-width:12em;margin:0 auto;padding-bottom:.08em}
-  #hero h1 em{font-style:italic;color:var(--accent)}
-  #hero .sub{max-width:640px;margin:26px auto 0;color:var(--muted);font-size:clamp(17px,2vw,20px)}
-  #hero .sub b{color:var(--ink);font-weight:700}
-  .checks{display:flex;gap:8px 28px;justify-content:center;flex-wrap:wrap;margin-top:30px}
-  .checks li{list-style:none;display:flex;align-items:center;gap:9px;font-size:15.5px;font-weight:700;color:var(--ink-soft)}
-  .checks svg{color:var(--accent-deep)}
-  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
-  .stats{display:flex;justify-content:center;gap:clamp(28px,6vw,84px);flex-wrap:wrap;margin-top:72px;padding-top:44px;border-top:1px solid var(--line)}
-  .stat{text-align:center}
-  .stat .n{font-size:clamp(34px,4vw,52px);font-weight:900;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
-  .stat .n i{font-style:normal;color:var(--accent)}
-  .stat .t{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-
-  /* ---------- problem ---------- */
-  #problem .big{
-    font-size:clamp(26px,3.6vw,42px);line-height:1.2;font-weight:700;letter-spacing:-.015em;max-width:21em;
-  }
-  #problem .big em{font-style:italic;color:var(--accent)}
-  #problem .kick{margin-top:26px;font-size:19px;color:var(--muted);max-width:34em}
-  #problem .kick b{color:var(--ink)}
-
-  /* ---------- bento zones ---------- */
-  .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto);gap:14px;margin-top:52px}
-  .cell{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:26px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;
-    transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s;
-  }
-  .cell:hover{transform:translateY(-4px);box-shadow:0 20px 44px -24px rgba(15,15,15,.22);border-color:#d9d2cb}
-  .cell .ic{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent-deep);display:grid;place-items:center;margin-bottom:4px}
-  .cell h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
-  .cell p{font-size:14.5px;color:var(--muted)}
-  .cell .tr{margin-top:auto;padding-top:12px;font-size:12.5px;font-weight:700;color:#8c857e;letter-spacing:.02em}
-  .cell.hero-cell{grid-column:span 2;padding:30px;background:linear-gradient(150deg,#fff,#fdf4ef)}
-  .cell.hero-cell h3{font-size:24px}
-  .cell.hero-cell p{font-size:15.5px;max-width:34em}
-  @media (max-width:960px){
-    .bento{grid-template-columns:repeat(2,1fr)}
-  }
-  @media (max-width:560px){
-    .bento{grid-template-columns:1fr}
-    .cell.hero-cell{grid-column:auto}
-  }
-
-  /* ---------- core (dark) ---------- */
-  #core{background:var(--dark);color:var(--dark-text)}
-  #core::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background:
-      radial-gradient(620px 400px at 85% 10%, rgba(232,73,14,.13), transparent 70%),
-      radial-gradient(520px 380px at 8% 92%, rgba(232,73,14,.08), transparent 70%);
-  }
-  #core .eyebrow{color:var(--accent-bright)}
-  #core h2{color:var(--dark-text)}
-  #core .lead{color:var(--dark-muted)}
-  #core .lead strong{color:var(--dark-text)}
-  .coregrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:54px}
-  .corecard{background:var(--dark-card);border:1px solid var(--dark-line);border-radius:var(--radius);padding:30px;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s}
-  .corecard:hover{transform:translateY(-4px);border-color:#4a3a2c}
-  .corecard .ic{width:46px;height:46px;border-radius:12px;background:rgba(232,73,14,.14);color:var(--accent-bright);display:grid;place-items:center;margin-bottom:18px}
-  .corecard h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
-  .corecard h3 em{font-style:italic;color:var(--accent-bright)}
-  .corecard p{color:var(--dark-muted);font-size:15.5px;margin-top:10px}
-  .corecard p b{color:var(--dark-text);font-weight:700}
-  .corecard .q{font-style:italic;color:var(--dark-text)}
-  @media (max-width:820px){.coregrid{grid-template-columns:1fr}}
-  .core-cta{margin-top:48px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-  .core-cta .note{font-size:14px;color:var(--dark-muted)}
-
-  /* ---------- modules ---------- */
-  .modgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
-  .modcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s}
-  .modcard:hover{transform:translateY(-5px);box-shadow:0 22px 48px -26px rgba(15,15,15,.25);border-color:#d9d2cb}
-  .modcard.corewide{grid-column:1/4;flex-direction:row;align-items:center;gap:30px;background:linear-gradient(120deg,#fff, #fdf3ed);flex-wrap:wrap}
-  .modcard.corewide .body{flex:1;min-width:260px}
-  .modcard .ic{width:48px;height:48px;border-radius:13px;background:var(--accent-soft);color:var(--accent-deep);display:grid;place-items:center;margin-bottom:18px;flex:none}
-  .modcard.corewide .ic{width:56px;height:56px;margin-bottom:0}
-  .modcard h3{font-size:22px;font-weight:700;letter-spacing:-.01em}
-  .modcard h3 span{font-size:15px;font-weight:500;font-style:italic;color:var(--accent-deep);margin-left:8px}
-  .modcard .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-soft);border-radius:999px;padding:4px 12px;margin-bottom:12px}
-  .modcard p{font-size:15px;color:var(--muted);margin-top:10px}
-  .modcard p b{color:var(--ink)}
-  .chips{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
-  .chips i{font-style:normal;font-size:12.5px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:5px 13px;color:var(--muted);background:#fff}
-  @media (max-width:900px){.modgrid{grid-template-columns:1fr}.modcard.corewide{grid-column:auto;flex-direction:column;align-items:flex-start}.modcard.corewide .ic{margin-bottom:18px}}
-
-  /* ---------- day timeline ---------- */
-  .timeline{margin-top:56px;position:relative;padding-left:34px;max-width:640px}
-  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;border-radius:2px;background:linear-gradient(var(--line),var(--accent),var(--line))}
-  .tick{position:relative;padding:0 0 46px}
-  .tick:last-child{padding-bottom:0}
-  .tick::before{content:"";position:absolute;left:-33px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2.5px solid var(--accent);transition:box-shadow .4s}
-  .tick.in::before{box-shadow:0 0 0 5px var(--accent-soft)}
-  .tick time{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
-  .tick h3{font-size:clamp(20px,2.4vw,26px);font-weight:700;letter-spacing:-.01em;margin-top:6px}
-  .tick p{color:var(--muted);max-width:34em;margin-top:8px;font-size:15.5px}
-  .tick p b{color:var(--ink);font-weight:700}
-
-  /* ---------- trust ---------- */
-  .trustgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:52px}
-  .trust{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;gap:18px;align-items:flex-start}
-  .trust .ic{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent-deep);display:grid;place-items:center;flex:none}
-  .trust h3{font-size:19px;font-weight:700}
-  .trust p{font-size:14.5px;color:var(--muted);margin-top:6px}
-  .trust p b{color:var(--ink)}
-  @media (max-width:760px){.trustgrid{grid-template-columns:1fr}}
-
-  /* ---------- is / isn't contrast ---------- */
-  .isnt{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
-  .isnt .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .isnt .card .no{display:inline-flex;align-items:center;gap:9px;font-size:17px;font-weight:700;letter-spacing:-.01em}
-  .isnt .card .no .x{width:26px;height:26px;border-radius:8px;background:#f4e5df;color:var(--accent-deep);display:grid;place-items:center;flex:none}
-  .isnt .card p{font-size:14.5px;color:var(--muted);margin-top:12px}
-  .is-line{margin-top:16px;background:var(--dark);color:var(--dark-text);border-radius:var(--radius);padding:28px 30px;display:flex;gap:16px;align-items:flex-start;position:relative;overflow:hidden}
-  .is-line::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px 280px at 90% 10%, rgba(232,73,14,.16), transparent 70%)}
-  .is-line .yes{width:30px;height:30px;border-radius:9px;background:rgba(232,73,14,.16);color:var(--accent-bright);display:grid;place-items:center;flex:none;position:relative;z-index:1}
-  .is-line p{font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.35;position:relative;z-index:1}
-  .is-line p b{color:var(--accent-bright);font-weight:700}
-  @media (max-width:760px){.isnt{grid-template-columns:1fr}}
-
-  /* ---------- founder ---------- */
-  #founder{background:var(--dark);color:var(--dark-text)}
-  #founder::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 420px at 12% 12%, rgba(232,73,14,.12), transparent 70%),radial-gradient(560px 400px at 92% 90%, rgba(232,73,14,.07), transparent 70%)}
-  #founder .eyebrow{color:var(--accent-bright)}
-  .founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;margin-top:44px;align-items:start}
-  .founder-card{background:var(--dark-card);border:1px solid var(--dark-line);border-radius:var(--radius);padding:32px}
-  .founder-card .mono{font-size:15px;font-weight:700;letter-spacing:.02em}
-  .founder-card .role{font-size:13.5px;color:var(--dark-muted);margin-top:4px}
-  .founder-creds{margin-top:22px;display:flex;flex-direction:column;gap:14px}
-  .founder-creds .c{display:flex;gap:13px;align-items:flex-start}
-  .founder-creds .c .n{font-size:24px;font-weight:900;color:var(--accent-bright);letter-spacing:-.02em;line-height:1;flex:none;min-width:64px}
-  .founder-creds .c .t{font-size:13.5px;color:var(--dark-muted);line-height:1.4}
-  .founder-creds .c .t b{color:var(--dark-text)}
-  .founder-body h2{color:var(--dark-text);max-width:16em}
-  .founder-body h2 em{color:var(--accent-bright);font-style:italic}
-  .founder-body p{color:var(--dark-muted);font-size:16px;margin-top:18px;max-width:38em}
-  .founder-body p b{color:var(--dark-text);font-weight:700}
-  .founder-sig{margin-top:24px;font-size:15px;color:var(--dark-text);font-weight:700}
-  .founder-sig span{display:block;font-size:13.5px;color:var(--dark-muted);font-weight:500;margin-top:2px}
-  @media (max-width:820px){.founder-grid{grid-template-columns:1fr;gap:26px}}
-
-  /* ---------- honesty gate ---------- */
-  .gate{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
-  .gatecard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:relative}
-  .gatecard .step{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#b0a89f}
-  .gatecard h3{font-size:19px;font-weight:700;letter-spacing:-.01em;margin-top:10px}
-  .gatecard p{font-size:14.5px;color:var(--muted);margin-top:10px}
-  .gatecard p b{color:var(--ink)}
-  .gate-foot{margin-top:26px;font-size:18px;font-weight:700;letter-spacing:-.01em}
-  .gate-foot em{font-style:italic;color:var(--accent)}
-  @media (max-width:760px){.gate{grid-template-columns:1fr}}
-
-  /* ---------- FAQ ---------- */
-  #faq .faqs{margin-top:44px;max-width:760px}
-  details{border-bottom:1px solid var(--line)}
-  details:first-of-type{border-top:1px solid var(--line)}
-  summary{
-    list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;
-    padding:22px 4px;font-size:18px;font-weight:700;letter-spacing:-.005em;min-height:44px;
-  }
-  summary::-webkit-details-marker{display:none}
-  summary .plus{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;color:var(--accent-deep);transition:transform .3s,background .3s,border-color .3s}
-  details[open] .plus{transform:rotate(45deg);background:var(--accent-soft);border-color:transparent}
-  details .a{padding:0 44px 24px 4px;color:var(--muted);font-size:16px;max-width:42em}
-  details .a b{color:var(--ink)}
-
-  /* ---------- final (dark) ---------- */
-  #finale{background:var(--dark);color:var(--dark-text);text-align:center}
-  #finale::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(700px 460px at 50% 0%, rgba(232,73,14,.14), transparent 70%);
-  }
-  #finale .eyebrow{color:var(--accent-bright);justify-content:center}
-  #finale h2{color:var(--dark-text);margin:0 auto;font-size:clamp(38px,5.6vw,68px)}
-  #finale h2 em{color:var(--accent);font-style:italic}
-  #finale .lead{color:var(--dark-muted);margin:22px auto 0;text-align:center}
-  #finale .lead strong{color:var(--dark-text)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:860px;margin:52px auto 0;text-align:left}
-  .step{background:var(--dark-card);border:1px solid var(--dark-line);border-radius:var(--radius);padding:24px}
-  .step .ic{width:42px;height:42px;border-radius:11px;background:rgba(232,73,14,.14);color:var(--accent-bright);display:grid;place-items:center;margin-bottom:14px}
-  .step .sn{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright)}
-  .step h3{font-size:17px;font-weight:700;margin-top:6px}
-  .step p{font-size:13.5px;color:var(--dark-muted);margin-top:6px}
-  @media (max-width:760px){.steps{grid-template-columns:1fr}}
-  #finale .cta-row{margin-top:44px}
-  #finale .micro{color:var(--dark-muted)}
-
-  footer{background:var(--dark);border-top:1px solid var(--dark-line);padding:34px 0;color:var(--dark-muted);font-size:13.5px}
-  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-  footer a{color:var(--dark-text);text-decoration:none;font-weight:700}
-  footer a:hover{color:var(--accent-bright)}
+  footer{padding:26px 0 34px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+  footer a{color:var(--ink);text-decoration:none;font-weight:700}
+  footer a:hover{color:var(--accent-deep)}
 </style>
 </head>
 <body>
+<div class="glow"></div>
 
-<!-- ============ HEADER ============ -->
 <header>
   <div class="wrap">
-    <a class="logo" href="#" aria-label="Creierul Afacerii, acasă">
+    <a class="logo" href="#" aria-label="Creierul Afacerii">
       <svg width="38" height="38" viewBox="0 0 32 32" fill="none" aria-hidden="true">
         <circle cx="10" cy="10" r="4.5" fill="#e8490e"/>
         <circle cx="23" cy="14" r="3" fill="#0f0f0f"/>
@@ -350,439 +103,36 @@
       </svg>
       <span class="wm"><b>Creierul Afacerii</b><span>Ține minte. Acționează. Raportează.</span></span>
     </a>
-    <nav class="main" aria-label="Principal">
-      <a class="nl" href="#core">Cum funcționează</a>
-      <a class="nl" href="#modules">Module</a>
-      <a class="nl" href="#day">O zi</a>
-      <a class="nl" href="#faq">Întrebări</a>
-      <a class="lang" href="https://businessbrainpro.com/" lang="en" hreflang="en" aria-label="Read in English, businessbrainpro.com">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span class="full">English</span><span class="short">EN</span>
-      </a>
-      <a class="btn-nav" href="mailto:contact@creierulafacerii.ro?subject=Instaleaz%C4%83%20Creierul%20Afacerii"><span class="full">Instalează Creierul</span><span class="short">Instalează</span></a>
-    </nav>
   </div>
 </header>
 
 <main>
-
-<!-- ============ HERO ============ -->
-<section id="hero" class="texture glow" aria-label="Introducere">
   <div class="wrap">
-    <p class="eyebrow" style="justify-content:center">Ține minte · Acționează · Raportează</p>
-    <h1>Afacerea ta, cu un <em>creier al ei.</em></h1>
-    <p class="sub">Creierul Afacerii e un AI care <b>ține minte tot</b>. Fiecare om, vânzare, idee și întâlnire, arhivate în <b>propriul tău Notion</b>. Acționează pe baza a ce știe. Și îți dă raportul la <b>7:00 în fiecare dimineață</b>, înainte de prima cafea.</p>
-    <ul class="checks">
-      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Trăiește în Notion-ul tău</li>
-      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Instalat pentru tine, într-o singură sesiune</li>
-      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Util din prima dimineață</li>
+    <p class="badge"><span class="dot"></span>În curând</p>
+    <h1>Un creier pentru afacerea ta. <em>Aproape gata.</em></h1>
+    <p class="sub">Creierul Afacerii e un AI care <b>ține minte tot</b> despre afacerea ta, în <b>propriul tău Notion</b>. Acționează pe baza a ce știe și îți dă raportul în fiecare dimineață la <b>7:00</b>. Punem ultimele detalii la punct.</p>
+
+    <ul class="points">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Trăiește în Notion-ul tău. <span>Datele rămân ale tale.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Instalat pentru tine, într-o singură sesiune. <span>Zero configurare tehnică.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Util din prima dimineață. <span>Primul raport, la 7:00.</span></li>
     </ul>
-    <div class="cta-row">
-      <a class="btn btn-dark" href="mailto:contact@creierulafacerii.ro?subject=Instaleaz%C4%83%20Creierul%20Afacerii">
+
+    <div class="cta">
+      <a class="btn" href="mailto:contact@creierulafacerii.ro?subject=Vreau%20acces%20devreme%20la%20Creierul%20Afacerii">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Instalează Creierul
+        Vreau acces devreme
       </a>
-      <a class="btn btn-light" href="#core">Vezi cum funcționează</a>
     </div>
-    <p class="micro">Totul începe cu un email. Dacă e potrivit pentru afacerea ta, îți spun cum. Dacă nu, tot îți spun direct.</p>
-
-    <div class="stats">
-      <div class="stat"><div class="n"><span data-count="7">7</span></div><div class="t">Zone</div></div>
-      <div class="stat"><div class="n"><span data-count="25">25</span></div><div class="t">Trackere</div></div>
-      <div class="stat"><div class="n"><span data-count="4">4</span></div><div class="t">Automatizări</div></div>
-      <div class="stat"><div class="n"><i>7:00</i></div><div class="t">Raportul zilnic</div></div>
-    </div>
+    <p class="micro">Scrie-mi și îți spun când e gata. Un email, la care răspunde un om.</p>
   </div>
-</section>
-
-<!-- ============ PROBLEM ============ -->
-<section id="problem" class="pad tint" aria-label="Problema">
-  <div class="wrap">
-    <p class="eyebrow rev">Partea pe care n-o spune nimeni cu voce tare</p>
-    <p class="big rev">Chiar acum, afacerea ta trăiește în capul tău. Fiecare idee pierdută, fiecare client care tace neobservat, fiecare follow-up scăpat. Fiecare te <em>costă bani.</em></p>
-    <p class="kick rev">Nu ai o problemă de productivitate. <b>Ai o problemă de memorie.</b></p>
-  </div>
-</section>
-
-<!-- ============ IS / ISN'T ============ -->
-<section id="isnt" class="pad texture" aria-label="Ce e și ce nu e">
-  <div class="wrap">
-    <p class="eyebrow rev">Să fim limpezi de la început</p>
-    <h2 class="rev">Nu încă un lucru<br>pe capul tău.</h2>
-    <div class="isnt">
-      <div class="card rev">
-        <span class="no"><span class="x"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Nu încă o aplicație</span>
-        <p>Ai deja prea multe tab-uri deschise. Creierul îți raportează ție. Nu intri niciodată să verifici ce face.</p>
-      </div>
-      <div class="card rev">
-        <span class="no"><span class="x"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Nu un curs</span>
-        <p>Fără lecții, fără module de urmărit, fără teme de „implementare". E instalat și pornit până în prima dimineață.</p>
-      </div>
-      <div class="card rev">
-        <span class="no"><span class="x"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Nu un șablon pe care-l dădăcești</span>
-        <p>Ai încercat asta și ai renunțat să-l mai întreții. Aici AI-ul face întreținerea. Tu doar vorbești.</p>
-      </div>
-    </div>
-    <div class="is-line rev">
-      <span class="yes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg></span>
-      <p>E <b>o memorie pentru afacerea ta, care se descurcă singură</b>: instalată într-o zi, în propriul tău Notion, lucrând în vocea ta.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FOUNDATION ============ -->
-<section id="foundation" class="pad texture" aria-label="Temelia">
-  <div class="wrap">
-    <p class="eyebrow rev">Unde trăiește memoria</p>
-    <h2 class="rev">Țesut de memorie, construit în Notion-ul tău.</h2>
-    <p class="lead rev">Tot ce știe Creierul trăiește în <strong>propriul tău spațiu de Notion</strong>. Nu pe platforma altcuiva. Șapte zone. Douăzeci și cinci de trackere interconectate. Fiecare om, vânzare, idee și întâlnire: arhivate, legate, ținute minte.</p>
-
-    <div class="bento">
-      <div class="cell hero-cell rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></svg></span>
-        <h3>Bani</h3>
-        <p>Fiecare vânzare, deal și ofertă. Cu motorul de scoring care prinde banii pe care îi scapi: VIP-uri care se răcesc, cumpărători pregătiți pentru următoarea ofertă, bani care se scurg în tăcere.</p>
-        <div class="tr">Vânzări · Pipeline · Oferte · Inteligența Clienților</div>
-      </div>
-      <div class="cell rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        <h3>Oameni</h3>
-        <p>O singură listă cu fiecare relație: clienți, lead-uri, parteneri. Care nu uită niciodată un nume.</p>
-        <div class="tr">Oameni · stadii · ritm de follow-up</div>
-      </div>
-      <div class="cell rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
-        <h3>Marketing</h3>
-        <p>Fiecare idee de conținut prinsă, urmărită de la scânteie la publicare. Cu semnale de performanță.</p>
-        <div class="tr">Captură de Conținut · Campanii</div>
-      </div>
-      <div class="cell rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg></span>
-        <h3>Creier</h3>
-        <p>Cunoașterea brandului tău: voce, oferte, reguli, idei brute. Ce citește AI-ul înainte să vorbească în numele tău.</p>
-        <div class="tr">Biblioteca Brand · Idei Brute</div>
-      </div>
-      <div class="cell rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></span>
-        <h3>Întâlniri</h3>
-        <p>Fiecare apel logat cu decizii, responsabili și sarcini. Cu transcriptul atașat.</p>
-        <div class="tr">Întâlniri · sarcini legate</div>
-      </div>
-      <div class="cell rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="m4.93 4.93 4.24 4.24m5.66 0 4.24-4.24m-4.24 9.9 4.24 4.24m-14.14 0 4.24-4.24"/></svg></span>
-        <h3>Suport</h3>
-        <p>Tichete, răspunsuri gata scrise și șabloane. Nicio întrebare de client pusă de două ori.</p>
-        <div class="tr">Tichete de Suport · Biblioteca de Răspunsuri</div>
-      </div>
-      <div class="cell rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></span>
-        <h3>Sinele</h3>
-        <p>Fondatorul face parte din sistem: obiective, rutine, energia zilnică. Urmărite lângă afacere.</p>
-        <div class="tr">Obiective · Rutine · Jurnal Zilnic</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CORE (dark) ============ -->
-<section id="core" class="pad" aria-label="Cum funcționează">
-  <div class="wrap">
-    <p class="eyebrow rev">Ce face cu memoria asta</p>
-    <h2 class="rev">Centrul de Comandă. Ascultă. Acționează. Raportează.</h2>
-
-    <div class="coregrid">
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></span>
-        <h3><em>Ascultă.</em> Tu doar vorbești.</h3>
-        <p><span class="q">„Tocmai am semnat cu Maria pentru campania de primăvară."</span> Propoziția asta devine o fișă de client, o legătură de proiect, un task de follow-up și o intrare în jurnal. Toate arhivate în trackerele corecte, <b>fără să atingi nicio bază de date.</b></p>
-      </div>
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-        <h3><em>Acționează.</em> Unde sunt banii tăi.</h3>
-        <p>Motoarele de bani citesc lista ta de clienți scorată și scot la suprafață ce ratează oamenii: <b>VIP-uri care se răcesc, cumpărători pregătiți pentru următoarea ofertă, bani care se scurg în tăcere.</b> Fiecare, cu mesajul de abordare deja scris. Tu apeși mereu pe trimite.</p>
-      </div>
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span>
-        <h3><em>Raportează.</em> Înainte să ceri.</h3>
-        <p>Fix la 7:00, în fiecare dimineață: ce e scadent, ce s-a mișcat, cine se răcește. Plus <b>cea mai bună idee de ieri, aleasă și readusă în atenție ca s-o duci mai departe.</b> Vineri vine sinteza de tipare: temele la care mintea ta tot revine.</p>
-      </div>
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg></span>
-        <h3><em>Te cunoaște.</em> Din prima zi.</h3>
-        <p>Un interviu de brand ghidat îl învață vocea ta, clientul tău, ofertele și regulile tale. Apoi importul: <b>ultimii doi ani de istoric de vânzări, înăuntru din prima zi.</b> Pornește deja învățat, nu de la zero.</p>
-      </div>
-    </div>
-
-    <div class="core-cta rev">
-      <a class="btn btn-accent" href="mailto:contact@creierulafacerii.ro?subject=Instaleaz%C4%83%20Creierul%20Afacerii">Instalează Creierul</a>
-      <span class="note">Configurat pentru tine, live, într-o singură sesiune ghidată.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MODULES ============ -->
-<section id="modules" class="pad texture glow" aria-label="Modulele">
-  <div class="wrap">
-    <p class="eyebrow rev">Cumperi doar treburile de care ai nevoie</p>
-    <h2 class="rev">Un singur creier. Lobi specializați.</h2>
-    <p class="lead rev">Modulele se prind de nucleu și îi împart memoria. Fără copii, fără sincronizări, fără un al doilea sistem. Începi cu nucleul. Adaugi doar ce-i trebuie afacerii tale, fiecare instalat peste el în câteva minute.</p>
-
-    <div class="modgrid">
-      <div class="modcard corewide rev">
-        <span class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></span>
-        <div class="body">
-          <span class="tag">Nucleul · aici începe oricine</span>
-          <h3>Centru de Comandă<span>memoria ta</span></h3>
-          <p>Notion-ul tău devine memoria afacerii: <b>25 de trackere în 7 zone, 19 skill-uri, 4 automatizări.</b> Configurate pentru tine într-o singură sesiune ghidată, cu captură rapidă de pe telefon inclusă.</p>
-        </div>
-        <div class="chips"><i>Instalare concierge</i><i>Raportul de dimineață</i><i>Motoare de bani</i><i>Verificare de sănătate</i></div>
-      </div>
-
-      <div class="modcard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></span>
-        <h3>Cârma<span>direcția ta</span></h3>
-        <p>Obiective cu numere reale. Loghezi „am alergat 8 km" sau „am trimis oferta" din mers. Cârma urmărește metricii și răspunde la singura întrebare care contează: <b>„Sunt în grafic?"</b> Verdictul intră în fiecare raport de dimineață.</p>
-        <div class="chips"><i>Obiective</i><i>Metrici</i><i>Jurnal zilnic</i><i>Verdictul</i></div>
-      </div>
-      <div class="modcard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg></span>
-        <h3>Condei<span>vocea ta</span></h3>
-        <p>Un sistem complet de scris: newslettere, LinkedIn, X, pagini de vânzare. În <b>vocea ta</b>, trasă din Biblioteca Brand. Cu o buclă de feedback care învață din ce a performat cu adevărat.</p>
-        <div class="chips"><i>28 de skill-uri de scris</i><i>ADN de voce</i><i>Buclă de învățare</i></div>
-      </div>
-      <div class="modcard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg></span>
-        <h3>Cercul<span>relațiile tale</span></h3>
-        <p>Un briefing zilnic de relații: cui să-i scrii azi și de ce. Cu un mesaj care <b>sună a tine, nu a robot.</b> Fiecare relație are un stadiu și un ritm. Niciuna nu tace neobservată.</p>
-        <div class="chips"><i>Briefing zilnic</i><i>Stadii de relație</i><i>Mesaje umane</i></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ A DAY ============ -->
-<section id="day" class="pad tint" aria-label="O zi cu Creierul">
-  <div class="wrap">
-    <p class="eyebrow rev">O zi cu Creierul</p>
-    <h2 class="rev">Lucrează și când tu nu lucrezi.</h2>
-    <div class="timeline">
-      <div class="tick rev"><time>07:00 · În fiecare zi</time><h3>Sosește Raportul de Dimineață.</h3><p>Ce e scadent azi, ce s-a mișcat ieri, cine se răcește. Plus <b>o idee de ieri, aleasă și propusă spre rafinare.</b> Îți începi ziua deja orientat.</p></div>
-      <div class="tick rev"><time>Toată ziua</time><h3>Tu vorbești. El arhivează.</h3><p>Un client nou într-un apel, o idee în trafic, o vânzare confirmată. O propoziție de la tine, de pe laptop sau telefon, și aterizează în trackerul corect, legată de proiectul corect.</p></div>
-      <div class="tick rev"><time>Luni 08:00</time><h3>Radarul de lead-uri reci.</h3><p>Lead-uri tăcute de 14+ zile, clienți amuțiți de 30+. Toate semnalate cu task-uri de follow-up <b>înainte să se ducă de tot.</b></p></div>
-      <div class="tick rev"><time>Vineri 15:30</time><h3>Sinteza de tipare.</h3><p>Patru săptămâni din ideile tale prinse, grupate pe teme. <b>La ce tot revine mintea ta.</b> De obicei, exact acolo se ascunde următoarea ta ofertă.</p></div>
-      <div class="tick rev"><time>Vineri 17:00</time><h3>Recapul săptămânal.</h3><p>Reușite, blocaje, pipeline de conținut, oameni noi. Săptămâna închisă cu o imagine clară, nu cu o senzație vagă.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRUST ============ -->
-<section id="trust" class="pad texture" aria-label="Construit să inspire încredere">
-  <div class="wrap">
-    <p class="eyebrow rev">Înainte să-i dai cheile</p>
-    <h2 class="rev">Puternic. Nu nesăbuit.</h2>
-    <div class="trustgrid">
-      <div class="trust rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-        <div><h3>Datele rămân ale tale</h3><p>Totul trăiește în spațiul <b>tău</b> de Notion. Fără platformă-intermediar, fără date ținute ostatice. Renunți mâine? Datele tale nu se mișcă.</p></div>
-      </div>
-      <div class="trust rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <div><h3>Nedistructiv, garantat</h3><p>Update-urile îți arată dinainte ce schimbă. Fac backup înainte de orice e structural. Nu-ți ating niciodată rândurile. Doar adaugă, niciodată nu șterg, mereu cu acordul tău.</p></div>
-      </div>
-      <div class="trust rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span>
-        <div><h3>Se auto-diagnostichează</h3><p>Întrebi <b>„e totul în regulă cu sistemul meu?"</b> și o verificare completă rulează în sub un minut, cu remedieri dintr-un clic.</p></div>
-      </div>
-      <div class="trust rev">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></span>
-        <div><h3>Instalare concierge</h3><p>Configurat pentru tine, live, într-o singură sesiune ghidată. Din prima dimineață ai deja primul raport. Și istoricul de vânzări importat.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FOUNDER ============ -->
-<section id="founder" class="pad" aria-label="Cine e în spate">
-  <div class="wrap">
-    <p class="eyebrow rev">Cine e în spate</p>
-    <div class="founder-grid">
-      <div class="founder-card rev">
-        <div class="mono">Razvan Popescu</div>
-        <div class="role">21 de ani în marketing și vânzări · a construit Creierul Afacerii</div>
-        <div class="founder-creds">
-          <div class="c"><span class="n">21 ani</span><span class="t">În marketing și vânzări, <b>din 2004</b>, pe teren, fără manual.</span></div>
-          <div class="c"><span class="n">11 ani</span><span class="t">În <b>pharma marketing</b>, cel mai reglementat mediu din lume, unde un mesaj greșit are consecințe reale.</span></div>
-          <div class="c"><span class="n">zile→ore</span><span class="t">Am construit sistemele AI care au dus o <b>firmă din New York</b> de la zile de muncă manuală la ore per client.</span></div>
-        </div>
-      </div>
-      <div class="founder-body rev">
-        <h2>Am petrecut 21 de ani preluând lucruri <em>de pe lista altora.</em></h2>
-        <p>Am pornit în 2004, în România. Unsprezece ani am făcut marketing pentru doctori și pacienți în Australia, unde înveți repede că un mesaj neglijent costă ceva real. Cel mai recent, am construit patru sisteme AI pentru o firmă din New York. <b>Echipa lor face acum în ore ce făcea în zile.</b></p>
-        <p>Am văzut mereu același lucru: un antreprenor bun, un business care funcționează, dar omul din el a ajuns angajatul propriei firme. Nu din lipsă de idei. Din prea multe lucruri neterminate pe listă. Creierul Afacerii e ce am construit ca să repar asta. <b>E sistemul pe care mi-aș fi dorit să-l aibă din prima zi fiecare antreprenor cu care am lucrat.</b></p>
-        <div class="founder-sig">Razvan Popescu<span>Preiau. Rezolv. Tu respiri.</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HONESTY GATE ============ -->
-<section id="gate" class="pad texture" aria-label="Pentru cine nu e">
-  <div class="wrap">
-    <p class="eyebrow rev">Prefer să-ți spun direct</p>
-    <h2 class="rev">Trei afaceri<br>pentru care nu e.</h2>
-    <div class="gate">
-      <div class="gatecard rev">
-        <div class="step">Nu se potrivește / 01</div>
-        <h3>Afacerea ta se face complet față în față.</h3>
-        <p>Restaurante, magazine cu vitrină, meserii manuale. Creierul ajută <b>în jurul</b> muncii, dar miezul a ceea ce faci nu e ceva ce poate cuprinde.</p>
-      </div>
-      <div class="gatecard rev">
-        <div class="step">Nu se potrivește / 02</div>
-        <h3>Vrei să meargă cu zero implicare din partea ta.</h3>
-        <p>Îți învață vocea, ofertele și cifrele de la tine, întâi. Sari peste interviul de brand și rămâne la fel de generic ca orice chatbot. <b>Tu vorbești, el lucrează</b>, dar nu e păcănele.</p>
-      </div>
-      <div class="gatecard rev">
-        <div class="step">Nu se potrivește / 03</div>
-        <h3>Nu ții nimic în Notion.</h3>
-        <p>AI-ul face întreținerea, dar memoria trebuie să stea undeva, iar acel undeva e <b>Notion-ul tău</b>. Fără Notion, fără Creier.</p>
-      </div>
-    </div>
-    <p class="gate-foot rev">Dacă nu te regăsești în niciuna, <em>hai să-i dăm drumul.</em></p>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section id="faq" class="pad" aria-label="Întrebări frecvente">
-  <div class="wrap">
-    <p class="eyebrow rev">Înainte să-mi scrii</p>
-    <h2 class="rev">Întrebările pe care le pune toată lumea.</h2>
-    <div class="faqs rev">
-      <details>
-        <summary>„Am încercat Notion și am renunțat."<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Fiindcă trebuia să-l întreții tu. Aici <b>AI-ul îl întreține</b>. Tu vorbești, el arhivează, leagă și actualizează. Structura se păstrează curată singură, iar o verificare de sănătate repară orice abatere dintr-un clic.</div>
-      </details>
-      <details>
-        <summary>„Nu face ChatGPT deja asta?"<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Un chat generic uită între sesiuni și nu-ți cunoaște afacerea. Creierul are <b>memorie structurată în propriul tău Notion</b>. Și îți învață vocea, ofertele, clienții și regulile într-un interviu de brand ghidat, chiar din prima zi.</div>
-      </details>
-      <details>
-        <summary>„N-am timp să implementez nimic."<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Nu implementezi tu. Prima sesiune îți configurează totul, concierge, live. <b>Mâine la 7:00 primești primul raport de dimineață</b>, cu ultimii doi ani de istoric de vânzări deja importați.</div>
-      </details>
-      <details>
-        <summary>„Dacă un update strică ceva?"<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Update-urile îți arată dinainte ce schimbă, <b>fac backup înainte de orice e structural</b> și nu-ți ating niciodată rândurile. Sistemul vine cu o verificare de sănătate de sub un minut, cu remedieri dintr-un clic.</div>
-      </details>
-      <details>
-        <summary>„Cât costă?"<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Depinde de nucleu plus modulele de care afacerea ta chiar are nevoie. Îmi scrii și primești <b>o cifră clară pe email</b>. Iar dacă Creierul nu e potrivit pentru tine, îți spun și asta, la fel de direct.</div>
-      </details>
-      <details>
-        <summary>„Ce se întâmplă cu datele mele dacă mă opresc?"<span class="plus" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
-        <div class="a">Nu se mută nimic. Totul trăiește în <b>propriul tău spațiu de Notion</b>. Te oprești mâine și fiecare fișă rămâne exact unde e, a ta.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FINALE (dark) ============ -->
-<section id="finale" class="pad" aria-label="Începe">
-  <div class="wrap">
-    <p class="eyebrow rev">La un email distanță</p>
-    <h2 class="rev">Un creier. <em>Afacerea ta.</em></h2>
-    <p class="lead rev">Instalat într-o zi. Util din prima dimineață. Al tău pentru totdeauna. Fiindcă trăiește în Notion-ul <strong>tău</strong>, vorbește în vocea <strong>ta</strong> și lucrează cu cifrele <strong>tale</strong>.</p>
-
-    <div class="steps">
-      <div class="step rev">
-        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>
-        <div class="sn">Pasul 1 din 3</div>
-        <h3>Duplici șablonul</h3>
-        <p>O pagină de Notion, un clic. Zero configurare tehnică din partea ta.</p>
-      </div>
-      <div class="step rev">
-        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span>
-        <div class="sn">Pasul 2 din 3</div>
-        <h3>O sesiune ghidată</h3>
-        <p>Sistemul se așază singur peste pagina ta: interviu de brand, import de istoric de vânzări, totul conectat.</p>
-      </div>
-      <div class="step rev">
-        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span>
-        <div class="sn">Pasul 3 din 3</div>
-        <h3>Mâine, la 7:00</h3>
-        <p>Sosește primul tău Raport de Dimineață. De aici încolo, lucrează și când tu nu lucrezi.</p>
-      </div>
-    </div>
-
-    <div class="cta-row rev">
-      <a class="btn btn-accent" href="mailto:contact@creierulafacerii.ro?subject=Instaleaz%C4%83%20Creierul%20Afacerii">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Instalează Creierul
-      </a>
-      <a class="btn btn-ghost-dark" href="mailto:contact@creierulafacerii.ro?subject=Instaleaz%C4%83%20Creierul%20Afacerii">contact@creierulafacerii.ro</a>
-    </div>
-    <p class="micro rev">Fără formular, fără funnel. Un email, la care răspunde un om.</p>
-  </div>
-</section>
-
 </main>
 
 <footer>
   <div class="wrap">
-    <div><b style="color:var(--dark-text)">Creierul Afacerii</b> · un AI care ține minte tot</div>
-    <div>Construit pe Claude AI × Notion-ul tău</div>
+    <div><b style="color:var(--ink)">Creierul Afacerii</b> · De Razvan Popescu</div>
     <div><a href="https://businessbrainpro.com/" lang="en" hreflang="en">In English: businessbrainpro.com</a></div>
-    <div>De <a href="https://razvanpopescu.com" rel="author">Razvan Popescu</a></div>
   </div>
 </footer>
-
-<script>
-(function(){
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revEls = [].slice.call(document.querySelectorAll('.rev,.tick'));
-
-  function revealAll(){ revEls.forEach(function(el){ el.classList.add('in'); }); }
-
-  // Fail-open reveal: content is visible by default. We only hide it (html.anim)
-  // once we've confirmed JS runs AND we have a way to bring it back. If anything
-  // in this chain fails, nothing is ever hidden. No blank sections, ever.
-  if(reduced || !('IntersectionObserver' in window)){
-    revealAll();
-  } else {
-    document.documentElement.classList.add('anim');
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    },{threshold:0, rootMargin:'0px 0px -8% 0px'});
-    revEls.forEach(function(el){ io.observe(el); });
-    // Hard backstop: whatever happens, reveal everything shortly after load so a
-    // section can never stay stuck invisible (stalled observer, odd renderer, etc.).
-    window.addEventListener('load', function(){ setTimeout(revealAll, 1400); });
-  }
-
-  // count-up stats
-  var cio = new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(!e.isIntersecting) return;
-      cio.unobserve(e.target);
-      var to = +e.target.dataset.count;
-      if(reduced){ e.target.textContent = to; return; }
-      var t0 = performance.now();
-      (function tick(t){
-        var k = Math.min(1,(t-t0)/1100);
-        e.target.textContent = Math.round(to*(1-Math.pow(1-k,3)));
-        if(k<1) requestAnimationFrame(tick);
-      })(t0);
-    });
-  },{threshold:.6});
-  document.querySelectorAll('[data-count]').forEach(function(el){ el.textContent='0'; cio.observe(el); });
-
-  // one FAQ open at a time
-  var faqs = document.querySelectorAll('#faq details');
-  faqs.forEach(function(d){
-    d.addEventListener('toggle', function(){
-      if(d.open) faqs.forEach(function(o){ if(o!==d) o.open=false; });
-    });
-  });
-})();
-</script>
 </body>
 </html>
