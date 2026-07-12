@@ -58,5 +58,7 @@ Domeniul `creierulafacerii.ro` e și infrastructura ecosistemului de plugin-uri.
 
 Astea deblochează pașii rămași din `versiuni.md` (pointarea redirect-urilor + endpoint-ul de update). Nu-s incluse acum, intenționat — pagina e „doar index" până creștem site-ul.
 
-## Pre-lansare
-CTA-urile din `index.html` pointează la `contact@creierulafacerii.ro`. Cutia poștală trebuie să existe înainte de lansare, altfel emailul de instalare sare în gol.
+## Pre-lansare — adresele de email
+- **`index.html` (pagina „În curând", live acum):** CTA-ul pointează TEMPORAR la `razvan@smartfreedomstrategies.com` (adresă funcțională azi, ca invitațiile de acces devreme să nu se piardă).
+- **`pagina-completa.html` (backup, viitoarea pagină de lansare):** CTA-urile pointează la `contact@creierulafacerii.ro`.
+- **La lansare:** configurează cutia `contact@creierulafacerii.ro` și mută CTA-ul paginii „În curând" înapoi de la `razvan@smartfreedomstrategies.com` la `contact@creierulafacerii.ro` (sau, dacă pui pagina completă în față, problema dispare — ea folosește deja `contact@`).
