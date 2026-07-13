@@ -1,0 +1,8 @@
+# Redirect-uri stabile — Creierul Afacerii (Cloudflare Pages)
+# Formatul: <sursă> <destinație> <status>. 302 = temporar (destinația poate
+# schimba fără să strici linkurile purtate de skill-uri sau de comunicarea cu clienții).
+
+# Template-ul Notion duplicabil (Template v2). Skill-urile poartă /template;
+# /template-notion e aliasul descriptiv. Ambele duc la același loc.
+/template         https://caramel-creator-7bf.notion.site/Centru-de-Comand-Template-v1-1b2ecc78f7928218ac0d01bc2a59b6a9   302
+/template-notion  https://caramel-creator-7bf.notion.site/Centru-de-Comand-Template-v1-1b2ecc78f7928218ac0d01bc2a59b6a9   302
