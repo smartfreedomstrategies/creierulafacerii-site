@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instalează-ți Creierul Afacerii</title>
-<meta name="description" content="Cum îți instalezi plugin-ul Creierul Afacerii în aplicația Claude desktop, și ce faci dacă se blochează ceva. Configurarea se face împreună.">
+<title>Pornește-ți Creierul Afacerii</title>
+<meta name="description" content="Tot procesul de pornire a Creierului Afacerii, cap-coadă, pe o pagină. Se întâmplă în aplicația Claude desktop (Cowork), și o facem împreună pe apel.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Instalează-ți Creierul Afacerii">
-<meta property="og:description" content="Cum intră fișierul plugin, cum îl pornești, și rezolvările pentru piedicile obișnuite.">
+<meta property="og:title" content="Pornește-ți Creierul Afacerii">
+<meta property="og:description" content="Tot procesul de pornire, cap-coadă, pe o pagină. Se întâmplă în aplicația Claude desktop (Cowork), și o facem împreună.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://creierulafacerii.ro/install">
 <link rel="alternate" hreflang="ro" href="https://creierulafacerii.ro/install">
 <link rel="alternate" hreflang="en" href="https://businessbrainpro.com/install">
-<link rel="alternate" hreflang="x-default" href="https://businessbrainpro.com/install">
+<link rel="alternate" hreflang="x-default" href="https://creierulafacerii.ro/install">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='%230f0f0f' d='M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z'/%3E%3Cpath stroke='%23e8490e' d='M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z'/%3E%3Cpath stroke='%230f0f0f' d='M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
@@ -61,16 +61,45 @@
   .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
   h1{font-size:clamp(34px,6.4vw,58px);line-height:1.05;font-weight:700;letter-spacing:-.028em;max-width:12em}
   h1 em{font-style:italic;color:var(--accent)}
-  .sub{max-width:36em;color:var(--muted);font-size:clamp(16px,2vw,19px);margin-top:22px}
-  .sub b{color:var(--ink);font-weight:700}
+  .sub,.lead{max-width:36em;color:var(--muted);font-size:clamp(16px,2vw,19px);margin-top:22px}
+  .sub b,.lead b{color:var(--ink);font-weight:700}
+  .lead a{color:var(--accent-deep);text-decoration:underline;text-underline-offset:2px;font-weight:700}
 
   h2{font-size:22px;font-weight:900;letter-spacing:-.01em;margin:46px 0 18px}
+  h2 + .lead{margin-top:-6px;margin-bottom:20px}
 
+  /* Caseta de liniște */
+  .calm{
+    background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:16px;padding:22px 24px;margin-top:26px;
+    box-shadow:0 1px 0 rgba(15,15,15,.02),0 18px 40px -32px rgba(15,15,15,.3);
+  }
+  .calm b{font-weight:900;color:var(--ink)}
+  .calm p{color:var(--ink-soft);font-size:16px}
+  .calm p + p{margin-top:10px}
+
+  /* Ce primești */
+  .kit{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:4px}
+  .kit li{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+    display:flex;gap:16px;align-items:flex-start;
+  }
+  .kit .tag{
+    flex:none;font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+    padding:5px 9px;border-radius:7px;margin-top:2px;white-space:nowrap;
+  }
+  .kit .tag.core{background:var(--accent);color:#fff}
+  .kit .tag.on{background:var(--accent-soft);color:var(--accent-deep);border:1px solid rgba(232,73,14,.2)}
+  .kit .body b{display:block;font-size:16.5px;font-weight:900;color:var(--ink);letter-spacing:-.01em}
+  .kit .body p{color:var(--muted);font-size:15px;margin-top:3px}
+  .kit .more{color:var(--muted);font-size:15px;text-align:center;display:block;padding:6px 0 0}
+
+  /* Pași */
   .steps{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:14px}
   .steps li{
     counter-increment:step;position:relative;
     background:var(--card);border:1px solid var(--line);border-radius:16px;
-    padding:20px 22px 20px 64px;
+    padding:20px 22px 22px 64px;
     box-shadow:0 1px 0 rgba(15,15,15,.02),0 18px 40px -32px rgba(15,15,15,.3);
   }
   .steps li::before{
@@ -79,8 +108,11 @@
     background:var(--accent);color:#fff;
     font-size:15px;font-weight:900;display:flex;align-items:center;justify-content:center;
   }
-  .steps b{display:block;font-size:17px;font-weight:900;color:var(--ink);letter-spacing:-.01em}
+  .steps li > b{display:block;font-size:17px;font-weight:900;color:var(--ink);letter-spacing:-.01em}
   .steps p{margin-top:6px;color:var(--muted);font-size:15.5px}
+  .steps p b,.steps .path b{font-weight:900;color:var(--ink)}
+  .steps a{color:var(--accent-deep);text-decoration:underline;text-underline-offset:2px;font-weight:700}
+  .steps a code{color:inherit}
   .path{
     display:inline-block;margin-top:10px;font-size:13.5px;font-weight:700;color:var(--ink-soft);
     background:var(--accent-soft);border:1px solid rgba(232,73,14,.18);border-radius:8px;
@@ -90,6 +122,29 @@
     font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;
     background:rgba(15,15,15,.05);border-radius:5px;padding:1px 6px;color:var(--ink);
   }
+
+  /* Sloturi de captură */
+  .shot{margin-top:16px}
+  .shot .ph{
+    display:flex;flex-direction:column;gap:11px;align-items:flex-start;
+    padding:24px;border:1.5px dashed rgba(232,73,14,.32);border-radius:14px;background:var(--accent-soft);
+  }
+  .shot .ph .lbl{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);
+  }
+  .shot .ph .lbl::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .shot .ph .fn{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--ink);
+    background:var(--card);border:1px solid rgba(232,73,14,.3);border-radius:7px;padding:5px 10px;
+  }
+  .shot img{display:block;width:100%;height:auto;border-radius:14px 14px 0 0}
+  .shot:has(img){
+    border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;
+    box-shadow:0 1px 0 rgba(15,15,15,.02),0 18px 40px -32px rgba(15,15,15,.3);
+  }
+  .shot figcaption{font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:9px}
+  .shot:has(img) figcaption{margin-top:0;padding:13px 16px 15px;border-top:1px solid var(--line)}
 
   .rescue{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:2px}
   .rescue li{
@@ -117,7 +172,7 @@
 
   footer{padding:26px 0 34px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;margin-top:52px}
   footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
-  @media (max-width:640px){footer .wrap{flex-direction:column;align-items:flex-start;gap:10px}.help{flex-direction:column;align-items:flex-start}}
+  @media (max-width:640px){footer .wrap{flex-direction:column;align-items:flex-start;gap:10px}.help{flex-direction:column;align-items:flex-start}.kit li{flex-direction:column;gap:8px}}
   footer a{color:var(--ink);text-decoration:none;font-weight:700}
   footer a:hover{color:var(--accent-deep)}
 </style>
@@ -144,24 +199,163 @@
 
 <main>
   <div class="wrap">
-    <p class="badge"><span class="dot"></span>Instalare și pornire</p>
-    <h1>Îți punem <em>Creierul</em> la treabă.</h1>
-    <p class="sub">Fișierul plugin îl primești direct de la mine. Vine cu licența ta, nu de pe o pagină de descărcare. Configurarea o facem împreună, în prima ta sesiune. Pagina asta e reperul: cum intră fișierul, cum îl pornești, și rezolvările rapide pentru piedicile obișnuite.</p>
+    <p class="badge"><span class="dot"></span>Pornire, cap-coadă</p>
+    <h1>Hai să-ți pornim <em>Creierul Afacerii</em>.</h1>
+    <p class="sub">Ăsta e tot procesul, cap-coadă, pe o pagină. Se întâmplă în aplicația Claude desktop (Cowork). Citește-o o dată înainte să vorbim, ca nimic să nu te ia prin surprindere, apoi ține-o la îndemână ca reper.</p>
 
-    <h2>Instaleaz-o</h2>
+    <div class="calm">
+      <p>Nu trebuie să faci nimic din toate astea singur. Le trecem împreună, pe apel, în direct, și durează cam <b>cincisprezece minute</b>.</p>
+      <p>Și nu poți strica nimic. Nimic nu se șterge, iar fiecare schimbare reală te întreabă întâi. Dacă un pas pare că nu e cum trebuie, ne oprim și îl lămurim pe loc.</p>
+    </div>
+
+    <h2>Ce primești</h2>
+    <p class="lead">Un sistem-nucleu, plus add-on-uri care se prind la el când vrei tu. Fiecare e un singur fișier și intră la fel.</p>
+    <ul class="kit">
+      <li>
+        <span class="tag core">Nucleul</span>
+        <span class="body">
+          <b>Centru de Comandă</b>
+          <p>Toată afacerea ta, organizată în Notion, care se completează singură pe măsură ce vorbești. Captura rapidă de pe telefon e inclusă direct în el.</p>
+        </span>
+      </li>
+      <li>
+        <span class="tag on">Add-on</span>
+        <span class="body">
+          <b>Cârma</b>
+          <p>Obiective, un jurnal zilnic și un răspuns drept la „sunt în grafic?", oricând întrebi.</p>
+        </span>
+      </li>
+      <li>
+        <span class="tag on">Add-on</span>
+        <span class="body">
+          <b>Condei</b>
+          <p>Scrie în vocea ta. Newslettere, postări, pagini, texte de vânzare, toate scoase din ce știe deja Creierul despre tine.</p>
+        </span>
+      </li>
+      <li>
+        <span class="tag on">Add-on</span>
+        <span class="body">
+          <b>Cercul</b>
+          <p>Îți ține cercul viu: relațiile calde și mesaje schițate care sună a tine, nu a robot.</p>
+        </span>
+      </li>
+      <li><span class="more">Și altele pe drum. Când apare unul care ți se potrivește, se instalează exact ca restul: un fișier, cam treizeci de secunde. Nu reînveți nimic.</span></li>
+    </ul>
+
+    <h2>Pas cu pas</h2>
+    <p class="lead">Îi facem împreună pe apel. Aici e tot drumul, ca să știi ce urmează.</p>
     <ol class="steps">
       <li>
-        <b>Primești fișierul</b>
-        <p>Îți trimit Creierul Afacerii, un singur fișier <code>.plugin</code>. Salvează-l unde-l găsești ușor (folderul Downloads e bun).</p>
+        <b>Creează-ți proiectul</b>
+        <p>În aplicația Claude desktop, deschide un proiect nou (Cowork le zice proiecte). Numește-l cum vrei. E baza ta: aici trăiește Creierul și aici se încarcă instrucțiunile la fiecare conversație.</p>
+        <!-- Când apare poza, înlocuiește tot <div class="ph">...</div> cu:  <img src="assets/shot-1-proiect-nou.png" alt="Ecranul de proiect nou din aplicația Claude desktop"> -->
+        <figure class="shot">
+          <div class="ph">
+            <span class="lbl">Captură de ecran de adăugat</span>
+            <span class="fn">assets/shot-1-proiect-nou.png</span>
+          </div>
+          <figcaption>Ecranul de proiect nou din aplicația Claude desktop. Un proiect îi dă Creierului o bază, care îți încarcă instrucțiunile de fiecare dată când deschizi o conversație.</figcaption>
+        </figure>
       </li>
       <li>
-        <b>Adaugă-l în aplicația Claude desktop</b>
-        <p>Deschide aplicația Claude desktop și adaugă fișierul ca plugin personal.</p>
+        <b>Copiază șablonul din Notion</b>
+        <p>Mergi la <a href="https://creierulafacerii.ro/template">creierulafacerii.ro/template</a> și dă <b>Duplicate</b> (iconița din dreapta sus). Cade o copie proaspătă, privată, în Notion-ul tău. Aici își ține Creierul tot.</p>
+        <!-- Poza e făcută. Când o reîmprospătezi, păstrează exact linia:  <img src="assets/shot-2-duplicare.png" alt="..."> -->
+        <figure class="shot">
+          <img src="assets/shot-2-duplicare.png" alt="Pagina de șablon pe care aterizezi în Notion; butonul Duplicate e iconița din dreapta sus">
+          <figcaption>Pagina de șablon pe care aterizezi. Ca s-o copiezi, dă Duplicate, iconița din dreapta sus a paginii.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <b>Lasă Claude să-ți vadă Notion-ul</b>
+        <p>Conectează conectorul Notion în Claude și dă <b>Allow</b>. Asta e ce-i permite Creierului să citească și să construiască în spațiul tău. Atinge doar spațiul tău, nimic altceva.</p>
+        <!-- Când apare poza, înlocuiește tot <div class="ph">...</div> cu:  <img src="assets/shot-3-allow.png" alt="Ecranul Allow al conectorului Notion"> -->
+        <figure class="shot">
+          <div class="ph">
+            <span class="lbl">Captură de ecran de adăugat</span>
+            <span class="fn">assets/shot-3-allow.png</span>
+          </div>
+          <figcaption>Ecranul Allow al conectorului Notion. Cu Allow îi dai voie Creierului să citească și să construiască în Notion-ul tău, și nicăieri altundeva. Ascunde ce e personal.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <b>Primești fișierele de la mine</b>
+        <p>Îți trimit totul direct: plugin-urile (nucleul, plus orice add-on ai) și un fișier de instrucțiuni. Salvează-le unde le găsești ușor (folderul Downloads e bun).</p>
+      </li>
+      <li>
+        <b>Adaugă fiecare plugin în aplicația Claude desktop</b>
+        <p>Aceeași cale scurtă pentru fiecare fișier. Nucleul întâi, apoi fiecare add-on la fel.</p>
         <span class="path">Customize → Personal plugins → + → Create plugin → Upload plugin → alege fișierul trimis de mine</span>
+        <!-- Când apare poza, înlocuiește tot <div class="ph">...</div> cu:  <img src="assets/shot-4-personal-plugins.png" alt="Meniul Personal plugins"> -->
+        <figure class="shot">
+          <div class="ph">
+            <span class="lbl">Captură de ecran de adăugat</span>
+            <span class="fn">assets/shot-4-personal-plugins.png</span>
+          </div>
+          <figcaption>Meniul Personal plugins (Customize → Personal plugins). Aici se adaugă în Claude fiecare plugin.</figcaption>
+        </figure>
+        <!-- Când apare poza, înlocuiește tot <div class="ph">...</div> cu:  <img src="assets/shot-5-upload.png" alt="Selectorul de fișier Upload plugin"> -->
+        <figure class="shot">
+          <div class="ph">
+            <span class="lbl">Captură de ecran de adăugat</span>
+            <span class="fn">assets/shot-5-upload.png</span>
+          </div>
+          <figcaption>Selectorul de fișier Upload plugin, cu fișierul tău <code>.plugin</code> ales. Ăsta e momentul în care fișierul intră.</figcaption>
+        </figure>
+        <!-- Când apare poza, înlocuiește tot <div class="ph">...</div> cu:  <img src="assets/shot-6-instalat.png" alt="Plugin-urile listate ca instalate"> -->
+        <figure class="shot">
+          <div class="ph">
+            <span class="lbl">Captură de ecran de adăugat</span>
+            <span class="fn">assets/shot-6-instalat.png</span>
+          </div>
+          <figcaption>Plugin-urile tale listate ca instalate. Confirmă că s-au încărcat și-s gata de folosit.</figcaption>
+        </figure>
       </li>
       <li>
-        <b>Pornește o conversație nouă și zi cuvântul</b>
-        <p>Plugin-urile se încarcă la începutul unei conversații, așa că deschide o <b>conversație nouă</b> și spune <code>pornește-mi centrul de comandă</code>. Ăsta e momentul în care Creierul Afacerii se trezește și începe să-ți construiască sistemul, împreună cu tine.</p>
+        <b>Lipește instrucțiunile</b>
+        <p>Deschide câmpul <b>Instructions</b> al proiectului (în setările proiectului) și lipește fișierul de instrucțiuni trimis de mine. E playbook-ul Creierului: cum scrie, cum construiește, cum îți ține munca în siguranță. Se încarcă singur la fiecare conversație din proiect.</p>
+        <!-- Când apare poza, înlocuiește tot <div class="ph">...</div> cu:  <img src="assets/shot-7-instructiuni.png" alt="Câmpul Instructions al proiectului cu instrucțiunile lipite"> -->
+        <figure class="shot">
+          <div class="ph">
+            <span class="lbl">Captură de ecran de adăugat</span>
+            <span class="fn">assets/shot-7-instructiuni.png</span>
+          </div>
+          <figcaption>Câmpul Instructions al proiectului, cu fișierul de instrucțiuni lipit. Ăsta e playbook-ul care se încarcă singur la fiecare conversație.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <b>Repornește aplicația</b>
+        <p>Închide și redeschide complet aplicația Claude desktop. Plugin-urile se trezesc doar la o pornire curată, deci pasul ăsta contează.</p>
+      </li>
+      <li>
+        <b>Zi cuvântul</b>
+        <p>Deschide o conversație <b>nouă</b> în proiect și spune <code>pornește-mi centrul de comandă</code>. Ăsta e momentul în care Creierul se trezește și începe să-ți construiască sistemul, împreună cu tine.</p>
+        <!-- Când apare poza, înlocuiește tot <div class="ph">...</div> cu:  <img src="assets/shot-8-pornire.png" alt="O conversație proaspătă imediat după ce zici pornește-mi centrul de comandă"> -->
+        <figure class="shot">
+          <div class="ph">
+            <span class="lbl">Captură de ecran de adăugat</span>
+            <span class="fn">assets/shot-8-pornire.png</span>
+          </div>
+          <figcaption>O conversație proaspătă, imediat după ce zici „pornește-mi centrul de comandă". Asta trezește sistemul și pornește construcția împreună cu tine.</figcaption>
+        </figure>
+      </li>
+    </ol>
+
+    <h2>Ești deja pornit? Adaugi un add-on sau reinstalezi</h2>
+    <p class="lead">Dacă Creierul îți merge deja și vrei doar să adaugi un add-on (sau să reîncarci un plugin după un update), sari peste tot ce e mai sus. Sunt trei pași scurți, fără reduplicat Notion.</p>
+    <ol class="steps">
+      <li>
+        <b>Salvează fișierul trimis</b>
+        <p>Pentru un add-on e un <code>.plugin</code> nou. Pentru un update e versiunea mai nouă a unuia pe care-l ai deja.</p>
+      </li>
+      <li>
+        <b>Încarcă-l la fel</b>
+        <p>Un update doar înlocuiește pe cel vechi.</p>
+        <span class="path">Customize → Personal plugins → + → Create plugin → Upload plugin → alege fișierul</span>
+      </li>
+      <li>
+        <b>Repornește, apoi folosește-l</b>
+        <p>Închide și redeschide aplicația, deschide o conversație nouă în proiect și zi cuvintele add-on-ului. Fără reduplicat Notion, fără relipit instrucțiunile.</p>
       </li>
     </ol>
 
@@ -169,7 +363,7 @@
     <ul class="rescue">
       <li>
         <b>Nu ți-au apărut toate abilitățile</b>
-        <p>De obicei un fișier mai vechi sau o aplicație care are nevoie de repornire. Cere-mi fișierul la zi, reîncarcă-l (pasul 2), apoi închide și redeschide complet aplicația desktop. Plugin-urile se reîncarcă doar la o pornire curată.</p>
+        <p>De obicei un fișier mai vechi sau o aplicație care are nevoie de repornire. Cere-mi fișierul la zi, reîncarcă-l (pasul 5), apoi închide și redeschide complet aplicația desktop. Plugin-urile se reîncarcă doar la o pornire curată.</p>
       </li>
       <li>
         <b>Fișierul nu se încarcă</b>
@@ -177,7 +371,7 @@
       </li>
       <li>
         <b>Aplicația nu pornește, sau merge greu</b>
-        <p>Asta e dinainte ca Creierul Afacerii să fie măcar implicat. Repornește aplicația (și calculatorul dacă e leneș), actualizează la ultima versiune, apoi încearcă din nou pasul 2.</p>
+        <p>Asta e dinainte ca Creierul să fie măcar implicat. Repornește aplicația (și calculatorul dacă e leneș), actualizează la ultima versiune, apoi încearcă din nou pasul 5.</p>
       </li>
     </ul>
 
@@ -186,7 +380,7 @@
         <b>Te-ai blocat la ceva?</b>
         <span>Scrie-mi și te ghidez pas cu pas. Se face împreună, niciodată lăsat pe seama unui manual.</span>
       </div>
-      <a class="btn" href="mailto:razvan@smartfreedomstrategies.com?subject=Ajutor%20la%20instalarea%20Creierului%20Afacerii">
+      <a class="btn" href="mailto:razvan@smartfreedomstrategies.com?subject=Ajutor%20la%20pornirea%20Creierului%20Afacerii">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Scrie-mi
       </a>
