@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creierul Afacerii. Un AI care ține minte toată afacerea ta.</title>
-<meta name="description" content="Un AI care ține minte tot despre afacerea ta, în propriul tău Notion. Acționează pe baza a ce știe și îți dă raportul la 7:00 în fiecare dimineață. Instalat cu tine, în câteva sesiuni 1-on-1.">
-<meta property="og:title" content="Creierul Afacerii. Un AI care ține minte toată afacerea ta.">
-<meta property="og:description" content="Afacerea ta, cu un creier al ei. Memoria în Notion-ul tău, acțiune pe cifrele tale, un raport în fiecare dimineață la 7:00.">
+<title>Creierul Afacerii: nu mai fi tu memoria ei</title>
+<meta name="description" content="Nu mai fi memoria afacerii tale. Creierul Afacerii ține minte fiecare om, vânzare, idee și întâlnire în propriul tău Notion, acționează pe baza a ce știe și îți dă raportul la 7:00 în fiecare dimineață.">
+<meta property="og:title" content="Creierul Afacerii: nu mai fi tu memoria ei">
+<meta property="og:description" content="Nu mai fi memoria afacerii tale. Memorie Proprie în Notion-ul tău, acțiune pe cifrele tale, un raport la 7:00 în fiecare dimineață.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://creierulafacerii.ro/">
 <meta name="twitter:card" content="summary">
-<link rel="alternate" hreflang="en" href="https://businessbrainpro.com/">
+<link rel="alternate" hreflang="en" href="https://thefoundersbrain.com/">
 <link rel="alternate" hreflang="ro" href="https://creierulafacerii.ro/">
-<link rel="alternate" hreflang="x-default" href="https://businessbrainpro.com/">
+<link rel="alternate" hreflang="x-default" href="https://thefoundersbrain.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='%230f0f0f' d='M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z'/%3E%3Cpath stroke='%23e8490e' d='M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z'/%3E%3Cpath stroke='%230f0f0f' d='M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
@@ -101,6 +101,8 @@
   .btn:focus-visible{border-radius:999px}
 
   .micro{font-size:14px;color:var(--muted);margin-top:16px}
+  .proof{max-width:640px;margin:44px auto 0;font-size:14.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 22px}
+  .proof b{color:var(--ink)}
 
   /* ---------- header ---------- */
   header{position:relative;z-index:10;height:76px;display:flex;align-items:center;background:var(--bg);border-bottom:1px solid var(--line)}
@@ -287,7 +289,7 @@
   /* ---------- honesty gate ---------- */
   .gate{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
   .gatecard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:relative}
-  .gatecard .step{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#b0a89f}
+  .gatecard .gstep{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#b0a89f}
   .gatecard h3{font-size:19px;font-weight:700;letter-spacing:-.01em;margin-top:10px}
   .gatecard p{font-size:14.5px;color:var(--muted);margin-top:10px}
   .gatecard p b{color:var(--ink)}
@@ -320,13 +322,15 @@
   #finale h2 em{color:var(--accent);font-style:italic}
   #finale .lead{color:var(--dark-muted);margin:22px auto 0;text-align:center}
   #finale .lead strong{color:var(--dark-text)}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:860px;margin:52px auto 0;text-align:left}
-  .step{background:var(--dark-card);border:1px solid var(--dark-line);border-radius:var(--radius);padding:24px}
-  .step .ic{width:42px;height:42px;border-radius:11px;background:rgba(232,73,14,.14);color:var(--accent-bright);display:grid;place-items:center;margin-bottom:14px}
-  .step .sn{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-bright)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:860px;margin:52px 0 0;text-align:left}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .step .ic{width:42px;height:42px;border-radius:11px;background:var(--accent-soft);color:var(--accent-deep);display:grid;place-items:center;margin-bottom:14px}
+  .step .sn{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
   .step h3{font-size:17px;font-weight:700;margin-top:6px}
-  .step p{font-size:13.5px;color:var(--dark-muted);margin-top:6px}
+  .step p{font-size:13.5px;color:var(--muted);margin-top:6px}
   @media (max-width:760px){.steps{grid-template-columns:1fr}}
+  .start-cta{margin-top:44px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .start-cta .note{font-size:14px;color:var(--muted)}
   #finale .cta-row{margin-top:44px}
   #finale .micro{color:var(--dark-muted)}
 
@@ -359,11 +363,11 @@
       <a class="nl" href="#modules">Module</a>
       <a class="nl" href="#day">O zi</a>
       <a class="nl" href="#faq">Întrebări</a>
-      <a class="lang" href="https://businessbrainpro.com/" lang="en" hreflang="en" aria-label="Read in English, businessbrainpro.com">
+      <a class="lang" href="https://thefoundersbrain.com/" lang="en" hreflang="en" aria-label="Read in English, thefoundersbrain.com">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         <span class="full">English</span><span class="short">EN</span>
       </a>
-      <a class="btn-nav" href="mailto:contact@creierulafacerii.ro?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii"><span class="full">Hai să vorbim</span><span class="short">Vorbim</span></a>
+      <a class="btn-nav" href="mailto:razvan@smartfreedomstrategies.com?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii"><span class="full">Hai să vorbim</span><span class="short">Vorbim</span></a>
     </nav>
   </div>
 </header>
@@ -374,21 +378,23 @@
 <section id="hero" class="texture glow" aria-label="Introducere">
   <div class="wrap">
     <p class="eyebrow" style="justify-content:center">Ține minte · Acționează · Raportează</p>
-    <h1>Afacerea ta, cu un<br><em>creier al&nbsp;ei.</em></h1>
-    <p class="sub">Creierul Afacerii e un AI care <b>ține minte tot</b>. Fiecare om, vânzare, idee și întâlnire, arhivate în <b>propriul tău Notion</b>. Acționează pe baza a ce știe. Și îți dă raportul la <b>7:00 în fiecare dimineață</b>, înainte de prima cafea.</p>
+    <h1>Nu mai fi memoria<br><em>afacerii tale.</em></h1>
+    <p class="sub">Creierul Afacerii ține minte fiecare om, vânzare, idee și întâlnire. Și acționează pe baza a ce știe. Construit pe <b>Memorie Proprie</b>: totul trăiește în <b>propriul tău Notion</b>, nu pe platforma noastră. Renunți mâine? Totul rămâne al tău. Iar la <b>7:00 în fiecare dimineață</b>, îți dă raportul înainte de prima cafea.</p>
     <ul class="checks">
-      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Trăiește în Notion-ul tău</li>
+      <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Al tău pentru totdeauna, în Notion-ul tău</li>
       <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Instalat cu tine, în câteva sesiuni 1-on-1</li>
       <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Util din prima dimineață</li>
     </ul>
     <div class="cta-row">
-      <a class="btn btn-dark" href="mailto:contact@creierulafacerii.ro?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">
+      <a class="btn btn-dark" href="mailto:razvan@smartfreedomstrategies.com?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Hai să vorbim
       </a>
       <a class="btn btn-light" href="#core">Vezi cum funcționează</a>
     </div>
     <p class="micro">Totul începe cu un email. Dacă e potrivit pentru afacerea ta, îți spun cum. Dacă nu, tot îți spun direct.</p>
+
+    <p class="proof">Construit de Razvan Popescu: 21 de ani în marketing și vânzări, 11 dintre ei în pharma, unde un mesaj neglijent costă ceva real. Ultimul lui sistem AI a dus o firmă din New York de la <b>zile de muncă manuală la ore per client</b>.</p>
 
     <div class="stats">
       <div class="stat"><div class="n"><span data-count="7">7</span></div><div class="t">Zone</div></div>
@@ -403,7 +409,7 @@
 <section id="problem" class="pad tint" aria-label="Problema">
   <div class="wrap">
     <p class="eyebrow rev">Partea pe care n-o spune nimeni cu voce tare</p>
-    <p class="big rev">Chiar acum, afacerea ta trăiește în capul tău. Fiecare idee pierdută, fiecare client care tace neobservat, fiecare follow-up scăpat. Fiecare te <em>costă bani.</em></p>
+    <p class="big rev">Undeva pe drum, ai ajuns angajatul propriei firme. Cel care ține minte tot: fiecare follow-up, fiecare idee, fiecare client care tace. <em>Și tot ce uiți te costă bani.</em></p>
     <p class="kick rev">Nu ai o problemă de productivitate. <b>Ai o problemă de memorie.</b></p>
   </div>
 </section>
@@ -434,11 +440,120 @@
   </div>
 </section>
 
+<!-- ============ CORE (dark) ============ -->
+<section id="core" class="pad" aria-label="Cum funcționează">
+  <div class="wrap">
+    <p class="eyebrow rev">Ce face cu memoria asta</p>
+    <h2 class="rev">Centrul de Comandă. Ascultă. Acționează. Raportează.</h2>
+
+    <div class="coregrid">
+      <div class="corecard rev">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></span>
+        <h3><em>Ascultă.</em> Tu doar vorbești.</h3>
+        <p><span class="q">„Tocmai am semnat cu Maria pentru campania de primăvară."</span> Propoziția asta devine o fișă de client, o legătură de proiect, un task de follow-up și o intrare în jurnal. Toate arhivate în trackerele corecte, <b>fără să atingi nicio bază de date.</b></p>
+      </div>
+      <div class="corecard rev">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+        <h3><em>Acționează.</em> Unde sunt banii tăi.</h3>
+        <p>Motoarele de bani citesc lista ta de clienți scorată și scot la suprafață ce ratează oamenii: <b>VIP-uri care se răcesc, cumpărători pregătiți pentru următoarea ofertă, bani care se scurg în tăcere.</b> Fiecare, cu mesajul de abordare deja scris. Tu apeși mereu pe trimite.</p>
+      </div>
+      <div class="corecard rev">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span>
+        <h3><em>Raportează.</em> Înainte să ceri.</h3>
+        <p>Fix la 7:00, în fiecare dimineață: ce e scadent, ce s-a mișcat, cine se răcește. Plus <b>cea mai bună idee de ieri, aleasă și readusă în atenție ca s-o duci mai departe.</b> Vineri vine sinteza de tipare: temele la care mintea ta tot revine.</p>
+      </div>
+      <div class="corecard rev">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg></span>
+        <h3><em>Te cunoaște.</em> Din prima zi.</h3>
+        <p>Un interviu de brand ghidat îl învață vocea ta, clientul tău, ofertele și regulile tale. Apoi importul: <b>ultimii doi ani de istoric de vânzări, înăuntru din prima zi.</b> Pornește deja învățat, nu de la zero.</p>
+      </div>
+    </div>
+
+    <div class="core-cta rev">
+      <a class="btn btn-accent" href="mailto:razvan@smartfreedomstrategies.com?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">Hai să vorbim</a>
+      <span class="note">Instalat cu tine, live, în câteva sesiuni ghidate.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUM ÎNCEPEM ============ -->
+<section id="start" class="pad" aria-label="Cum începem">
+  <div class="wrap">
+    <p class="eyebrow rev">Cum începem</p>
+    <h2 class="rev">Trei pași.<br>Fără funnel.</h2>
+    <div class="steps">
+      <div class="step rev">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>
+        <div class="sn">Pasul 1 din 3</div>
+        <h3>O conversație scurtă</h3>
+        <p>15-20 de minute. Vedem împreună dacă e potrivit pentru afacerea ta. Fără pitch.</p>
+      </div>
+      <div class="step rev">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span>
+        <div class="sn">Pasul 2 din 3</div>
+        <h3>Sesiunile ghidate</h3>
+        <p>1-on-1, pe afacerea ta reală. Tu aduci contextul, eu îl pun la punct, până rulează.</p>
+      </div>
+      <div class="step rev">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span>
+        <div class="sn">Pasul 3 din 3</div>
+        <h3>Raportul de dimineață</h3>
+        <p>La 7:00, în fiecare zi. De aici încolo, lucrează și când tu nu lucrezi.</p>
+      </div>
+    </div>
+    <div class="start-cta rev">
+      <a class="btn btn-dark" href="mailto:razvan@smartfreedomstrategies.com?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">Hai să vorbim</a>
+      <span class="note">Un email, la care răspunde un om. Dacă nu e potrivit, îți spun și asta, la fel de direct.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HONESTY GATE ============ -->
+<section id="gate" class="pad texture" aria-label="Pentru cine nu e">
+  <div class="wrap">
+    <p class="eyebrow rev">Prefer să-ți spun direct</p>
+    <h2 class="rev">Trei afaceri<br>pentru care nu e.</h2>
+    <div class="gate">
+      <div class="gatecard rev">
+        <div class="gstep">Nu se potrivește / 01</div>
+        <h3>Afacerea ta se face complet față în față.</h3>
+        <p>Restaurante, magazine cu vitrină, meserii manuale. Creierul ajută <b>în jurul</b> muncii, dar miezul a ceea ce faci nu e ceva ce poate cuprinde.</p>
+      </div>
+      <div class="gatecard rev">
+        <div class="gstep">Nu se potrivește / 02</div>
+        <h3>Vrei să meargă cu zero implicare din partea ta.</h3>
+        <p>Îți învață vocea, ofertele și cifrele de la tine, întâi. Sari peste interviul de brand și rămâne la fel de generic ca orice chatbot. <b>Tu vorbești, el lucrează</b>, dar nu e păcănele.</p>
+      </div>
+      <div class="gatecard rev">
+        <div class="gstep">Nu se potrivește / 03</div>
+        <h3>Nu ții nimic în Notion.</h3>
+        <p>AI-ul face întreținerea, dar memoria trebuie să stea undeva, iar acel undeva e <b>Notion-ul tău</b>. Fără Notion, fără Creier.</p>
+      </div>
+    </div>
+    <p class="gate-foot rev">Dacă nu te regăsești în niciuna, <em>hai să-i dăm drumul.</em></p>
+  </div>
+</section>
+
+<!-- ============ A DAY ============ -->
+<section id="day" class="pad tint" aria-label="O zi cu Creierul">
+  <div class="wrap">
+    <p class="eyebrow rev">O zi cu Creierul</p>
+    <h2 class="rev">Lucrează și când tu nu lucrezi.</h2>
+    <div class="timeline">
+      <div class="tick rev"><time>07:00 · În fiecare zi</time><h3>Sosește Raportul de Dimineață.</h3><p>Ce e scadent azi, ce s-a mișcat ieri, cine se răcește. Plus <b>o idee de ieri, aleasă și propusă spre rafinare.</b> Îți începi ziua deja orientat.</p></div>
+      <div class="tick rev"><time>Toată ziua</time><h3>Tu vorbești. El arhivează.</h3><p>Un client nou într-un apel, o idee în trafic, o vânzare confirmată. O propoziție de la tine, de pe laptop sau telefon, și aterizează în trackerul corect, legată de proiectul corect.</p></div>
+      <div class="tick rev"><time>Luni 08:00</time><h3>Radarul de lead-uri reci.</h3><p>Lead-uri tăcute de 14+ zile, clienți amuțiți de 30+. Toate semnalate cu task-uri de follow-up <b>înainte să se ducă de tot.</b></p></div>
+      <div class="tick rev"><time>Vineri 15:30</time><h3>Sinteza de tipare.</h3><p>Patru săptămâni din ideile tale prinse, grupate pe teme. <b>La ce tot revine mintea ta.</b> De obicei, exact acolo se ascunde următoarea ta ofertă.</p></div>
+      <div class="tick rev"><time>Vineri 17:00</time><h3>Recapul săptămânal.</h3><p>Reușite, blocaje, pipeline de conținut, oameni noi. Săptămâna închisă cu o imagine clară, nu cu o senzație vagă.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOUNDATION ============ -->
 <section id="foundation" class="pad texture" aria-label="Temelia">
   <div class="wrap">
     <p class="eyebrow rev">Unde trăiește memoria</p>
-    <h2 class="rev">Țesut de memorie, construit în Notion-ul tău.</h2>
+    <h2 class="rev">Memorie Proprie, construită în Notion-ul tău.</h2>
     <p class="lead rev">Tot ce știe Creierul trăiește în <strong>propriul tău Notion, în contul tău</strong>. Fără o platformă intermediară, fără date ținute ostatice. Șapte zone. Douăzeci și cinci de trackere interconectate. Fiecare om, vânzare, idee și întâlnire: arhivate, legate, ținute minte.</p>
 
     <div class="bento">
@@ -488,42 +603,6 @@
   </div>
 </section>
 
-<!-- ============ CORE (dark) ============ -->
-<section id="core" class="pad" aria-label="Cum funcționează">
-  <div class="wrap">
-    <p class="eyebrow rev">Ce face cu memoria asta</p>
-    <h2 class="rev">Centrul de Comandă. Ascultă. Acționează. Raportează.</h2>
-
-    <div class="coregrid">
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></span>
-        <h3><em>Ascultă.</em> Tu doar vorbești.</h3>
-        <p><span class="q">„Tocmai am semnat cu Maria pentru campania de primăvară."</span> Propoziția asta devine o fișă de client, o legătură de proiect, un task de follow-up și o intrare în jurnal. Toate arhivate în trackerele corecte, <b>fără să atingi nicio bază de date.</b></p>
-      </div>
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-        <h3><em>Acționează.</em> Unde sunt banii tăi.</h3>
-        <p>Motoarele de bani citesc lista ta de clienți scorată și scot la suprafață ce ratează oamenii: <b>VIP-uri care se răcesc, cumpărători pregătiți pentru următoarea ofertă, bani care se scurg în tăcere.</b> Fiecare, cu mesajul de abordare deja scris. Tu apeși mereu pe trimite.</p>
-      </div>
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span>
-        <h3><em>Raportează.</em> Înainte să ceri.</h3>
-        <p>Fix la 7:00, în fiecare dimineață: ce e scadent, ce s-a mișcat, cine se răcește. Plus <b>cea mai bună idee de ieri, aleasă și readusă în atenție ca s-o duci mai departe.</b> Vineri vine sinteza de tipare: temele la care mintea ta tot revine.</p>
-      </div>
-      <div class="corecard rev">
-        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg></span>
-        <h3><em>Te cunoaște.</em> Din prima zi.</h3>
-        <p>Un interviu de brand ghidat îl învață vocea ta, clientul tău, ofertele și regulile tale. Apoi importul: <b>ultimii doi ani de istoric de vânzări, înăuntru din prima zi.</b> Pornește deja învățat, nu de la zero.</p>
-      </div>
-    </div>
-
-    <div class="core-cta rev">
-      <a class="btn btn-accent" href="mailto:contact@creierulafacerii.ro?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">Hai să vorbim</a>
-      <span class="note">Instalat cu tine, live, în câteva sesiuni ghidate.</span>
-    </div>
-  </div>
-</section>
-
 <!-- ============ MODULES ============ -->
 <section id="modules" class="pad texture glow" aria-label="Modulele">
   <div class="wrap">
@@ -560,21 +639,6 @@
         <p>Un briefing zilnic de relații: cui să-i scrii azi și de ce. Cu un mesaj care <b>sună a tine, nu a robot.</b> Fiecare relație are un stadiu și un ritm. Niciuna nu tace neobservată.</p>
         <div class="chips"><i>Briefing zilnic</i><i>Stadii de relație</i><i>Mesaje umane</i></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ A DAY ============ -->
-<section id="day" class="pad tint" aria-label="O zi cu Creierul">
-  <div class="wrap">
-    <p class="eyebrow rev">O zi cu Creierul</p>
-    <h2 class="rev">Lucrează și când tu nu lucrezi.</h2>
-    <div class="timeline">
-      <div class="tick rev"><time>07:00 · În fiecare zi</time><h3>Sosește Raportul de Dimineață.</h3><p>Ce e scadent azi, ce s-a mișcat ieri, cine se răcește. Plus <b>o idee de ieri, aleasă și propusă spre rafinare.</b> Îți începi ziua deja orientat.</p></div>
-      <div class="tick rev"><time>Toată ziua</time><h3>Tu vorbești. El arhivează.</h3><p>Un client nou într-un apel, o idee în trafic, o vânzare confirmată. O propoziție de la tine, de pe laptop sau telefon, și aterizează în trackerul corect, legată de proiectul corect.</p></div>
-      <div class="tick rev"><time>Luni 08:00</time><h3>Radarul de lead-uri reci.</h3><p>Lead-uri tăcute de 14+ zile, clienți amuțiți de 30+. Toate semnalate cu task-uri de follow-up <b>înainte să se ducă de tot.</b></p></div>
-      <div class="tick rev"><time>Vineri 15:30</time><h3>Sinteza de tipare.</h3><p>Patru săptămâni din ideile tale prinse, grupate pe teme. <b>La ce tot revine mintea ta.</b> De obicei, exact acolo se ascunde următoarea ta ofertă.</p></div>
-      <div class="tick rev"><time>Vineri 17:00</time><h3>Recapul săptămânal.</h3><p>Reușite, blocaje, pipeline de conținut, oameni noi. Săptămâna închisă cu o imagine clară, nu cu o senzație vagă.</p></div>
     </div>
   </div>
 </section>
@@ -616,42 +680,16 @@
         <div class="founder-creds">
           <div class="c"><span class="n">21 ani</span><span class="t">În marketing și vânzări, <b>din 2004</b>, pe teren, fără manual.</span></div>
           <div class="c"><span class="n">11 ani</span><span class="t">În <b>pharma marketing</b>, cel mai reglementat mediu din lume, unde un mesaj greșit are consecințe reale.</span></div>
-          <div class="c"><span class="n">zile→ore</span><span class="t">Am construit sistemele AI care au dus o <b>firmă din New York</b> de la zile de muncă manuală la ore per client.</span></div>
+          <div class="c"><span class="n">4</span><span class="t"><b>Sisteme AI</b> construite pentru o singură firmă din New York. Rezultatul e sus, la începutul paginii.</span></div>
         </div>
       </div>
       <div class="founder-body rev">
         <h2>Am petrecut 21 de ani preluând lucruri <em>de pe lista altora.</em></h2>
-        <p>Am pornit în 2004, în România. Unsprezece ani am făcut marketing pentru doctori și pacienți în Australia, unde înveți repede că un mesaj neglijent costă ceva real. Cel mai recent, am construit patru sisteme AI pentru o firmă din New York. <b>Echipa lor face acum în ore ce făcea în zile.</b></p>
-        <p>Am văzut mereu același lucru: un antreprenor bun, un business care funcționează, dar omul din el a ajuns angajatul propriei firme. Nu din lipsă de idei. Din prea multe lucruri neterminate pe listă. Creierul Afacerii e ce am construit ca să repar asta. <b>E sistemul pe care mi-aș fi dorit să-l aibă din prima zi fiecare antreprenor cu care am lucrat.</b></p>
+        <p>Am pornit în 2004, în România. Unsprezece ani am făcut marketing pentru doctori și pacienți în Australia, unde înveți repede că un mesaj neglijent costă ceva real. Cel mai recent, am construit patru sisteme AI pentru o firmă din New York.</p>
+        <p>Am văzut mereu același lucru: un antreprenor bun, un business care funcționează, și un om care ține totul în cap. Nu din lipsă de idei. Din prea multe lucruri neterminate pe listă. Creierul Afacerii e ce am construit ca să repar asta. <b>E sistemul pe care mi-aș fi dorit să-l aibă din prima zi fiecare antreprenor cu care am lucrat.</b></p>
         <div class="founder-sig">Razvan Popescu<span>Preiau. Rezolv. Tu respiri.</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============ HONESTY GATE ============ -->
-<section id="gate" class="pad texture" aria-label="Pentru cine nu e">
-  <div class="wrap">
-    <p class="eyebrow rev">Prefer să-ți spun direct</p>
-    <h2 class="rev">Trei afaceri<br>pentru care nu e.</h2>
-    <div class="gate">
-      <div class="gatecard rev">
-        <div class="step">Nu se potrivește / 01</div>
-        <h3>Afacerea ta se face complet față în față.</h3>
-        <p>Restaurante, magazine cu vitrină, meserii manuale. Creierul ajută <b>în jurul</b> muncii, dar miezul a ceea ce faci nu e ceva ce poate cuprinde.</p>
-      </div>
-      <div class="gatecard rev">
-        <div class="step">Nu se potrivește / 02</div>
-        <h3>Vrei să meargă cu zero implicare din partea ta.</h3>
-        <p>Îți învață vocea, ofertele și cifrele de la tine, întâi. Sari peste interviul de brand și rămâne la fel de generic ca orice chatbot. <b>Tu vorbești, el lucrează</b>, dar nu e păcănele.</p>
-      </div>
-      <div class="gatecard rev">
-        <div class="step">Nu se potrivește / 03</div>
-        <h3>Nu ții nimic în Notion.</h3>
-        <p>AI-ul face întreținerea, dar memoria trebuie să stea undeva, iar acel undeva e <b>Notion-ul tău</b>. Fără Notion, fără Creier.</p>
-      </div>
-    </div>
-    <p class="gate-foot rev">Dacă nu te regăsești în niciuna, <em>hai să-i dăm drumul.</em></p>
   </div>
 </section>
 
@@ -696,33 +734,12 @@
     <h2 class="rev">Un creier. <em>Afacerea ta.</em></h2>
     <p class="lead rev">Instalat într-o zi. Util din prima dimineață. Al tău pentru totdeauna. Fiindcă trăiește în Notion-ul <strong>tău</strong>, vorbește în vocea <strong>ta</strong> și lucrează cu cifrele <strong>tale</strong>.</p>
 
-    <div class="steps">
-      <div class="step rev">
-        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>
-        <div class="sn">Pasul 1 din 3</div>
-        <h3>O conversație scurtă</h3>
-        <p>15-20 de minute. Vedem împreună dacă e potrivit pentru afacerea ta. Fără pitch.</p>
-      </div>
-      <div class="step rev">
-        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg></span>
-        <div class="sn">Pasul 2 din 3</div>
-        <h3>Sesiunile ghidate</h3>
-        <p>1-on-1, pe afacerea ta reală. Tu aduci contextul, eu îl pun la punct, până rulează.</p>
-      </div>
-      <div class="step rev">
-        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span>
-        <div class="sn">Pasul 3 din 3</div>
-        <h3>Raportul de dimineață</h3>
-        <p>La 7:00, în fiecare zi. De aici încolo, lucrează și când tu nu lucrezi.</p>
-      </div>
-    </div>
-
     <div class="cta-row rev">
-      <a class="btn btn-accent" href="mailto:contact@creierulafacerii.ro?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">
+      <a class="btn btn-accent" href="mailto:razvan@smartfreedomstrategies.com?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Hai să vorbim
       </a>
-      <a class="btn btn-ghost-dark" href="mailto:contact@creierulafacerii.ro?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">contact@creierulafacerii.ro</a>
+      <a class="btn btn-ghost-dark" href="mailto:razvan@smartfreedomstrategies.com?subject=Hai%20s%C4%83%20vorbim%20despre%20Creierul%20Afacerii">razvan@smartfreedomstrategies.com</a>
     </div>
     <p class="micro rev">Fără formular, fără funnel. Un email, la care răspunde un om.</p>
   </div>
@@ -734,7 +751,7 @@
   <div class="wrap">
     <div><b style="color:var(--dark-text)">Creierul Afacerii</b> · un AI care ține minte tot</div>
     <div>Construit pe Claude AI × Notion-ul tău</div>
-    <div><a href="https://businessbrainpro.com/" lang="en" hreflang="en">In English: businessbrainpro.com</a></div>
+    <div><a href="https://thefoundersbrain.com/" lang="en" hreflang="en">In English: thefoundersbrain.com</a></div>
     <div>De <a href="https://razvanpopescu.com" rel="author">Razvan Popescu</a></div>
   </div>
 </footer>
