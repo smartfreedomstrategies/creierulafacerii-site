@@ -5,7 +5,7 @@
   "plugins": {
     "centru-de-comanda": "0.20.0",
     "carma": "0.19.1",
-    "condei": "0.11.4",
+    "condei": "0.12.0",
     "cercul": "0.14.0",
     "captura-idei": "0.3.0"
   }
