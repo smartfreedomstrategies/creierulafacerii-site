@@ -1,9 +1,9 @@
 {
   "product": "Creierul Afacerii — Centru de Comandă",
-  "generated_at": "2026-07-16",
+  "generated_at": "2026-07-20",
   "schema": "2.0.0",
   "plugins": {
-    "centru-de-comanda": "0.17.1",
+    "centru-de-comanda": "0.17.2",
     "carma": "0.19.0",
     "condei": "0.11.4",
     "cercul": "0.12.3",
